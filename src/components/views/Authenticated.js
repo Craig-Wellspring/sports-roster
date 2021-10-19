@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { signOutUser } from '../../api/auth';
+import Roster from '../Roster';
 
 export default function Authenticated({ user }) {
   return (
     <div className="text-center mt-5">
       <h1>Welcome, {user.fullName}!</h1>
-      <img src={user.profileImage} alt={user.fullName} />
+      <Roster />
       <div className="mt-2">
         <button type="button" className="btn btn-danger" onClick={signOutUser}>
           Sign Out
