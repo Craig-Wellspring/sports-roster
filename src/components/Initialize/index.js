@@ -22,13 +22,7 @@ function Initialize() {
     });
   }, []);
 
-  return user ? (
-    <div className="App">
-      <Authenticated user={user} />
-    </div>
-  ) : (
-    <SignIn user={user} />
-  );
+  return user ? <Authenticated user={user} /> : <SignIn user={user} />;
 }
 
 export default Initialize;
