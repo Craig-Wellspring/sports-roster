@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import SignIn from '../views/SignIn';
-import Authenticated from '../views/Authenticated';
+import Authenticated from '../Authenticated';
 
 function Initialize() {
   const [user, setUser] = useState(null);

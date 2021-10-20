@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.scss';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { BrowserRouter } from 'react-router-dom';
 import firebaseConfig from './api/apiKeys';
-// import { Router } from 'react-router-dom';
 import Initialize from './components/Initialize';
 import reportWebVitals from './reportWebVitals';
 
@@ -14,9 +14,9 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router> */}
-    <Initialize />
-    {/* </Router> */}
+    <BrowserRouter>
+      <Initialize />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
