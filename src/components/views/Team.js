@@ -5,8 +5,6 @@ import Player from '../Player';
 
 const PlayerCardContainer = styled.div`
   padding: 10px;
-  border: 1px solid black;
-  border-radius: 4px;
   margin: 10px;
 
   display: flex;
