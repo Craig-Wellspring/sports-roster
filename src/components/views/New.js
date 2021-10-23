@@ -16,38 +16,21 @@ const StyledForm = styled.form`
   align-items: center;
 `;
 
-const NameLabel = styled.label`
+const FormItemLabel = styled.label`
   font-size: 1.2em;
   font-weight: bold;
 `;
 
-const NameInput = styled.input`
+const FormInput = styled.input`
   padding: 10px;
   border-radius: 4px;
 
   text-align: center;
-`;
-
-const PositionLabel = styled.label`
-  font-size: 1.2em;
-  font-weight: bold;
 `;
 
 const PositionDropdown = styled.select`
   padding: 10px;
   border: 1px solid black;
-  border-radius: 4px;
-
-  text-align: center;
-`;
-
-const PhotoLabel = styled.label`
-  font-size: 1.2em;
-  font-weight: bold;
-`;
-
-const PhotoInput = styled.input`
-  padding: 10px;
   border-radius: 4px;
 
   text-align: center;
@@ -75,12 +58,10 @@ export default function New({
           position: editObj.position,
           img: editObj.img,
         });
-      } else {
-        isMounted = false;
       }
     }
     return () => {
-      isMounted = true;
+      isMounted = false;
     };
   }, [editObj]);
 
@@ -114,18 +95,18 @@ export default function New({
       <h1>Add a Player</h1>
       <FormContainer>
         <StyledForm>
-          <NameLabel htmlFor="name">
+          <FormItemLabel htmlFor="name">
             Name:
             <br />
-            <NameInput
+            <FormInput
               name="name"
               id="name"
               value={formState.name}
               onChange={handleChange}
               required
             />
-          </NameLabel>
-          <PositionLabel htmlFor="position">
+          </FormItemLabel>
+          <FormItemLabel htmlFor="position">
             Position:
             <br />
             <PositionDropdown
@@ -140,11 +121,11 @@ export default function New({
               <option>Defender</option>
               <option>Goalkeeper</option>
             </PositionDropdown>
-          </PositionLabel>
-          <PhotoLabel>
+          </FormItemLabel>
+          <FormItemLabel>
             Photo URL:
             <br />
-            <PhotoInput
+            <FormInput
               name="img"
               id="img"
               type="url"
@@ -152,14 +133,12 @@ export default function New({
               onChange={handleChange}
               required
             />
-          </PhotoLabel>
+          </FormItemLabel>
           <SubmitButton
             type="submit"
-            // className="btn btn-success"
             className={`btn btn-${editObj.firebaseKey ? 'primary' : 'success'}`}
             onClick={handleSubmit}
           >
-            {/* Submit */}
             {editObj.firebaseKey ? 'Update' : 'Submit'}
           </SubmitButton>
         </StyledForm>
