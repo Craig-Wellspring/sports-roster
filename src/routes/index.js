@@ -7,11 +7,12 @@ import Team from '../components/views/Team';
 import New from '../components/views/New';
 
 const ViewContainer = styled.div`
-  background-color: gray;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  align-items: center;
 `;
 
 export default function Router({

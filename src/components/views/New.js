@@ -5,7 +5,6 @@ import { createPlayer, updatePlayer } from '../../api/data/playerData';
 
 const FormContainer = styled.div`
   padding: 10px;
-  border: 1px solid black;
   margin: 10px;
 `;
 
@@ -58,7 +57,7 @@ const SubmitButton = styled.button``;
 
 const initialFormState = {
   name: '',
-  position: 'First Position',
+  position: 'Forward',
   img: '',
 };
 
@@ -136,9 +135,10 @@ export default function New({
               onChange={handleChange}
               required
             >
-              <option>First Position</option>
-              <option>Second Position</option>
-              <option>Third Position</option>
+              <option>Forward</option>
+              <option>Midfielder</option>
+              <option>Defender</option>
+              <option>Goalkeeper</option>
             </PositionDropdown>
           </PositionLabel>
           <PhotoLabel>
@@ -155,10 +155,12 @@ export default function New({
           </PhotoLabel>
           <SubmitButton
             type="submit"
-            className="btn btn-success"
+            // className="btn btn-success"
+            className={`btn btn-${editObj.firebaseKey ? 'primary' : 'success'}`}
             onClick={handleSubmit}
           >
-            Submit
+            {/* Submit */}
+            {editObj.firebaseKey ? 'Update' : 'Submit'}
           </SubmitButton>
         </StyledForm>
       </FormContainer>

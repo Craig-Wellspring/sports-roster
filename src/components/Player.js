@@ -14,6 +14,7 @@ const PlayerCard = styled.div`
   background-color: white;
   padding: 10px;
   border: 1px solid black;
+  border-radius: 4px;
   margin: 10px;
 `;
 
@@ -21,7 +22,7 @@ const PlayerPhoto = styled.img`
   max-height: 150px;
   max-width: 200px;
 
-  border: 1px solid black;
+  border-radius: 4px;
 `;
 
 const ButtonContainer = styled.div`
@@ -52,9 +53,8 @@ export default function Player({
 
   return (
     <PlayerCard>
+      <h5>{playerData.name}</h5>
       <PlayerPhoto src={playerData.img} alt="player_photo" />
-      {playerData.name}
-      <hr />
       {playerData.position}
       <ButtonContainer>
         <EditButton
