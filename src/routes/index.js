@@ -14,7 +14,13 @@ const ViewContainer = styled.div`
   text-align: center;
 `;
 
-export default function Router({ user, playersState, setPlayersState }) {
+export default function Router({
+  user,
+  playersState,
+  setPlayersState,
+  editObj,
+  setEditObj,
+}) {
   return (
     <ViewContainer>
       <Switch>
@@ -22,13 +28,25 @@ export default function Router({ user, playersState, setPlayersState }) {
         <Route
           exact
           path="/team"
-          component={() => <Team user={user} playersState={playersState} />}
+          component={() => (
+            <Team
+              user={user}
+              setPlayersState={setPlayersState}
+              playersState={playersState}
+              setEditObj={setEditObj}
+            />
+          )}
         />
         <Route
           exact
           path="/new"
           component={() => (
-            <New user={user} setPlayersState={setPlayersState} />
+            <New
+              user={user}
+              setPlayersState={setPlayersState}
+              editObj={editObj}
+              setEditObj={setEditObj}
+            />
           )}
         />
       </Switch>
@@ -40,4 +58,6 @@ Router.propTypes = {
   user: PropTypes.shape().isRequired,
   playersState: PropTypes.arrayOf(PropTypes.object).isRequired,
   setPlayersState: PropTypes.func.isRequired,
+  editObj: PropTypes.shape().isRequired,
+  setEditObj: PropTypes.func.isRequired,
 };

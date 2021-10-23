@@ -9,21 +9,21 @@ export default function Navigation() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-info"
         onClick={() => history.push('/')}
       >
         Home
       </button>
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-info"
         onClick={() => history.push('/team')}
       >
         Team
       </button>
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-info"
         onClick={() => history.push('/new')}
       >
         New

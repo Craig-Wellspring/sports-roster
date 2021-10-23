@@ -7,8 +7,10 @@ import { getPlayers } from '../api/data/playerData';
 export default function Authenticated({ user }) {
   const [playersState, setPlayersState] = useState([]);
   useEffect(() => {
-    setPlayersState(getPlayers());
+    getPlayers(user.uid).then(setPlayersState);
   }, []);
+
+  const [editObj, setEditObj] = useState({});
 
   return (
     <>
@@ -17,6 +19,8 @@ export default function Authenticated({ user }) {
         user={user}
         playersState={playersState}
         setPlayersState={setPlayersState}
+        editObj={editObj}
+        setEditObj={setEditObj}
       />
     </>
   );
@@ -26,5 +30,6 @@ Authenticated.propTypes = {
   user: PropTypes.shape({
     fullName: PropTypes.string,
     profileImage: PropTypes.string,
+    uid: PropTypes.string,
   }).isRequired,
 };
