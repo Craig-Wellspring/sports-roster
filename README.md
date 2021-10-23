@@ -1,5 +1,5 @@
 # Team Roster App
-Author: Craig Wellspring
+Author: Craig Wellspring \
 Netlify: https://cmw-sports-roster.netlify.app/
 
 ## Description
